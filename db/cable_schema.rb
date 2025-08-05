@@ -1,5 +1,5 @@
 ActiveRecord::Schema[7.1].define(version: 1) do
-  create_table "solid_cable_messages", force: :cascade do |t|
+  create_table "solid_cable_messages", force: :cascade, id: :uuid  do |t|
     t.binary "channel", limit: 1024, null: false
     t.binary "payload", limit: 536870912, null: false
     t.datetime "created_at", null: false

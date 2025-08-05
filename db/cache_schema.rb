@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ActiveRecord::Schema[7.2].define(version: 1) do
-  create_table "solid_cache_entries", force: :cascade do |t|
+  create_table "solid_cache_entries", force: :cascade, id: :uuid  do |t|
     t.binary "key", limit: 1024, null: false
     t.binary "value", limit: 536870912, null: false
     t.datetime "created_at", null: false
