@@ -66,3 +66,6 @@ end
 
 gem 'devise', '~> 4.9'
 gem 'rolify'
+
+gem 'sentry-rails'
+gem 'sentry-ruby'
