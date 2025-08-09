@@ -1,0 +1,16 @@
+<%= form_with model: @home, url: home_index_url, method: :post, data: { turbo: false }, local: true do |f| %>
+  <div class="mb-5">
+    <%= f.label :name, 'Document Name', class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.text_field :name, class: "border border-gray-300 rounded-md font-medium placeholder-current focus:outline-none dark:bg-gray-700 dark:border-gray-50 dark:text-slate-100 w-full", placeholder: 'Enter team name', required: true %>
+  </div>
+
+  <div class="mb-5">
+    <%= f.label :documents, 'Documents', class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.file_field :documents,
+                     class: "border border-gray-300 rounded-md font-medium placeholder-current focus:outline-none dark:bg-gray-700 dark:border-gray-50 dark:text-slate-100 w-full",
+                     accept: ".xlsx,.csv",
+                     placeholder: 'Choose an .xlsx or .csv file' %>  </div>
+  <div class="mb-5">
+    <%= f.submit 'Create Team', class: "h-12 border border-black dark:border-white border-b-4 border-r-2 p-3 rounded font-semibold" %>
+  </div>
+<% end %>
