@@ -67,7 +67,6 @@
     <orderEntry type="library" scope="PROVIDED" name="fugit (v1.11.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.7, rbenv: 3.4.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v2.2.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.15.2, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.13.0, rbenv: 3.4.5) [gem]" level="application" />
@@ -96,14 +95,12 @@
     <orderEntry type="library" scope="PROVIDED" name="ostruct (v0.6.3, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.27.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v3.3.9.0, rbenv: 3.4.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pg (v1.6.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pp (v0.6.2, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prettyprint (v0.2.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prism (v1.4.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="propshaft (v1.2.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="psych (v5.2.6, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v6.0.2, rbenv: 3.4.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="puma (v6.6.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="raabro (v1.4.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.8.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v3.2.0, rbenv: 3.4.5) [gem]" level="application" />
@@ -121,6 +118,7 @@
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.6.2, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v3.1.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.4.1, rbenv: 3.4.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rolify (v6.0.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.79.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.46.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-performance (v1.25.0, rbenv: 3.4.5) [gem]" level="application" />
@@ -130,6 +128,8 @@
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.4.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="securerandom (v0.4.1, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.34.0, rbenv: 3.4.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sentry-rails (v5.26.0, rbenv: 3.4.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sentry-ruby (v5.26.0, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_cable (v3.0.11, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_cache (v1.0.7, rbenv: 3.4.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_queue (v1.2.1, rbenv: 3.4.5) [gem]" level="application" />
