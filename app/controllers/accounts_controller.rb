@@ -14,7 +14,7 @@ class AccountsController < ApplicationController
   def create
     @account = @client.accounts.build(account_params)
     if @account.save
-      redirect_to client_accounts_path(@client), notice: "Account created successfully for #{@client}."
+      redirect_to client_path(@client), notice: "Account created successfully for #{@client}."
     else
       render :new
     end
