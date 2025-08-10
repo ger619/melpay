@@ -14,4 +14,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "home#index"
   resources :home
+  resources :clients do
+    member do
+      patch :approve_kyc
+      patch :reject_kyc
+    end
+    resources :accounts, only: [:index, :new, :create]
+  end
 end
