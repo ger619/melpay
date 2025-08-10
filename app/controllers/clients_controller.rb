@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_client, only: [:show, :edit, :update, :destroy, :approve_kyc, :reject_kyc]
+  before_action :set_client, only: [:show, :edit, :update, :approve_kyc, :reject_kyc]
 
   def index
     @clients = Client.all
