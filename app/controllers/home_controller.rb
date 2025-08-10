@@ -3,12 +3,12 @@ class HomeController < ApplicationController
   # before_action :set_home, only: %i[show edit update destroy ]
 
   def index
-    #@homes = Home.all.order('created_at DESC')
-    #@totals_deposits = {}
-    #@totals_credits = {}
-    #@totals_returns = {}
+    # @homes = Home.all.order('created_at DESC')
+    # @totals_deposits = {}
+    # @totals_credits = {}
+    # @totals_returns = {}
 
-    #@homes.each do |home|
+    # @homes.each do |home|
     #  next unless home.document.attached?
 
     #  Tempfile.create(['uploaded_file', ".#{home.document.filename.extension}"]) do |tempfile|
