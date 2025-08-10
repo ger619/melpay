@@ -9,12 +9,12 @@ class Client < ApplicationRecord
   before_validation :set_default_kyc_status, on: :create
 
   def kyc_approved?
-    kyc_status == "approved"
+    kyc_status == 'approved'
   end
 
   private
 
   def set_default_kyc_status
-    self.kyc_status ||= "pending"
+    self.kyc_status ||= 'pending'
   end
 end

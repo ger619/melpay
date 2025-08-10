@@ -31,8 +31,8 @@ class AccountsController < ApplicationController
   end
 
   def check_kyc_status
-    unless @client.kyc_approved?
-      redirect_to @client, alert: "KYC must be approved before creating an account for #{@client}."
-    end
+    return if @client.kyc_approved?
+
+    redirect_to @client, alert: "KYC must be approved before creating an account for #{@client}."
   end
 end

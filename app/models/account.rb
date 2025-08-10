@@ -4,10 +4,11 @@ class Account < ApplicationRecord
   validate :client_must_have_approved_kyc
 
   before_create :assign_account_number
+
   private
 
   def client_must_have_approved_kyc
-    errors.add(:base, "KYC must be approved before creating an account") unless client&.kyc_approved?
+    errors.add(:base, 'KYC must be approved before creating an account') unless client&.kyc_approved?
   end
 
   def assign_account_number
