@@ -40,17 +40,10 @@
       <% end %>
     </div>
 
-    <% if @client.accounts.any? %>
+    <% if @client_accounts.any? %>
       <ul class="divide-y divide-gray-200 dark:divide-gray-700">
-        <% @client.accounts.each do |account| %>
-          <li class="py-3 flex justify-between items-center">
-            <span class="text-gray-800 dark:text-gray-100">
-              <%= account.account_number %>
-            </span>
-            <span class="text-sm text-gray-600 dark:text-gray-300">
-              <%= account.account_type %>
-            </span>
-          </li>
+        <% @client_accounts.each do |account| %>
+          <li><%= @client.name %> — <%= account.account_number %> — <%= account.balance %></li>
         <% end %>
       </ul>
     <% else %>
