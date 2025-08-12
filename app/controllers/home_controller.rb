@@ -53,6 +53,7 @@ class HomeController < ApplicationController
     #  @totals_credits[home.id] = 0
     #  @totals_returns[home.id] = 0
     # end
+    # this is life
   end
 
   def new
