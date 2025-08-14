@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_home, only: %i[show edit update destroy ]
+  before_action :set_home, only: %i[show edit update destroy]
 
   def index
     @homes = Home.all.order('created_at DESC')
@@ -53,7 +53,6 @@ class HomeController < ApplicationController
       @totals_credits[home.id] = 0
       @totals_returns[home.id] = 0
     end
-    # this is life
   end
 
   def new
@@ -61,20 +60,19 @@ class HomeController < ApplicationController
   end
 
   def create
-    @home = Home.new(home_params)
-    @home.user_id = current_user.id
+    @home = current_user.homes.build(home_params)
 
     respond_to do |format|
       if @home.save
         format.html { redirect_to home_path(@home), notice: 'Home was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
       end
     end
   end
 
   def show
-    @file = Home.find(params[:id])
+    @file = @home
     return unless @file.document.attached?
 
     Tempfile.create(['uploaded_file', ".#{@file.document.filename.extension}"]) do |tempfile|
@@ -129,7 +127,7 @@ class HomeController < ApplicationController
       if @home.update(home_params)
         format.html { redirect_to home_path(@home), notice: 'Home was successfully updated.' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_content }
       end
     end
   end
@@ -152,6 +150,6 @@ class HomeController < ApplicationController
   end
 
   def home_params
-    params.require(:home).permit(:name)
+    params.require(:home).permit(:name, :document)
   end
 end
