@@ -67,5 +67,7 @@ end
 gem 'devise', '~> 4.9'
 gem 'rolify'
 
+gem 'omniauth', '>= 1.0.0'
+gem 'roo'
 gem 'sentry-rails'
 gem 'sentry-ruby'
