@@ -1,59 +1,58 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_home, only: %i[show edit update destroy ]
+  before_action :set_home, only: %i[show edit update destroy]
 
   def index
-    # @homes = Home.all.order('created_at DESC')
-    # @totals_deposits = {}
-    # @totals_credits = {}
-    # @totals_returns = {}
+    @homes = Home.all.order('created_at DESC')
+    @totals_deposits = {}
+    @totals_credits = {}
+    @totals_returns = {}
 
-    # @homes.each do |home|
-    #  next unless home.document.attached?
+    @homes.each do |home|
+      next unless home.document.attached?
 
-    #  Tempfile.create(['uploaded_file', ".#{home.document.filename.extension}"]) do |tempfile|
-    #    content = home.document.download.force_encoding('UTF-8')
-    #    tempfile.write(content)
-    #    tempfile.rewind
+      Tempfile.create(['uploaded_file', ".#{home.document.filename.extension}"]) do |tempfile|
+        content = home.document.download.force_encoding('UTF-8')
+        tempfile.write(content)
+        tempfile.rewind
 
-    #    spreadsheet = case home.document.filename.extension
-    #                  when 'csv' then Roo::CSV.new(tempfile.path)
-    #                  when 'xls' then Roo::Excel.new(tempfile.path)
-    #                  when 'xlsx' then Roo::Excelx.new(tempfile.path)
-    #                  end
+        spreadsheet = case home.document.filename.extension
+                      when 'csv' then Roo::CSV.new(tempfile.path)
+                      when 'xls' then Roo::Excel.new(tempfile.path)
+                      when 'xlsx' then Roo::Excelx.new(tempfile.path)
+                      end
 
-    #    header = spreadsheet.row(1)
-    #     deposits = []
-    #    credits = []
-    #    returns = []
+        header = spreadsheet.row(1)
+        deposits = []
+        credits = []
+        returns = []
 
-    #    (2..spreadsheet.last_row).each do |i|
-    #      row = [header, spreadsheet.row(i)].transpose.to_h
-    #      next unless row['type'] && row['amount']
+        (2..spreadsheet.last_row).each do |i|
+          row = [header, spreadsheet.row(i)].transpose.to_h
+          next unless row['type'] && row['amount']
 
-    #       case row['type']&.strip&.downcase
-    #      when 'deposit'
-    #        deposits << row
-    #      when 'credit'
-    #        credits << row
-    #       when 'return'
-    #         returns << row
-    #      end
-    #    end
+          case row['type']&.strip&.downcase
+          when 'deposit'
+            deposits << row
+          when 'credit'
+            credits << row
+          when 'return'
+            returns << row
+          end
+        end
 
-    #    @totals_deposits[home.id] = deposits.sum { |d| d['amount'].to_f }
-    #    @totals_credits[home.id] = credits.sum { |c| c['amount'].to_f }
-    #     @totals_returns[home.id] = returns.sum { |r| r['amount'].to_f }
-    #     @total_deposits_sum = @totals_deposits.values.sum
-    #    @total_credits_sum = @totals_credits.values.sum
-    #    @total_returns_sum = @totals_returns.values.sum
-    #  end
-    # rescue StandardError
-    #  @totals_deposits[home.id] = 0
-    #  @totals_credits[home.id] = 0
-    #  @totals_returns[home.id] = 0
-    # end
-    # this is life
+        @totals_deposits[home.id] = deposits.sum { |d| d['amount'].to_f }
+        @totals_credits[home.id] = credits.sum { |c| c['amount'].to_f }
+        @totals_returns[home.id] = returns.sum { |r| r['amount'].to_f }
+        @total_deposits_sum = @totals_deposits.values.sum
+        @total_credits_sum = @totals_credits.values.sum
+        @total_returns_sum = @totals_returns.values.sum
+      end
+    rescue StandardError
+      @totals_deposits[home.id] = 0
+      @totals_credits[home.id] = 0
+      @totals_returns[home.id] = 0
+    end
   end
 
   def new
@@ -61,20 +60,19 @@ class HomeController < ApplicationController
   end
 
   def create
-    @home = Home.new(home_params)
-    @home.user_id = current_user.id
+    @home = current_user.homes.build(home_params)
 
     respond_to do |format|
       if @home.save
         format.html { redirect_to home_path(@home), notice: 'Home was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
       end
     end
   end
 
   def show
-    @file = Home.find(params[:id])
+    @file = @home
     return unless @file.document.attached?
 
     Tempfile.create(['uploaded_file', ".#{@file.document.filename.extension}"]) do |tempfile|
@@ -129,7 +127,7 @@ class HomeController < ApplicationController
       if @home.update(home_params)
         format.html { redirect_to home_path(@home), notice: 'Home was successfully updated.' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_content }
       end
     end
   end
@@ -152,6 +150,6 @@ class HomeController < ApplicationController
   end
 
   def home_params
-    params.require(:home).permit(:name)
+    params.require(:home).permit(:name, :document)
   end
 end

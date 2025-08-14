@@ -1,7 +1,7 @@
 <div class="grid grid-cols-3 gap-4 mb-4">
   <div class="flex items-center justify-between h-24 rounded-sm bg-gray-50 dark:bg-gray-800 p-4">
     <div class="text-xl flex flex-col p-2">
-      <span>Kshs 10,000</span>
+      <span><%= number_to_currency(@total_deposits_sum.presence || 0) %></span>
       <span>Money In</span>
     </div>
     <div>
@@ -13,7 +13,7 @@
   </div>
   <div class="flex items-center justify-between h-24 rounded-sm bg-gray-50 dark:bg-gray-800 p-4">
     <div class="text-xl flex flex-col p-2">
-      <span>Kshs 10,000</span>
+      <span><%= number_to_currency(@total_credits_sum.presence || 0) %></span>
       <span>Money Out</span>
     </div>
     <div>
