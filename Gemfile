@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 8.0.2'
+gem 'rails', '~> 8.0.2', '>= 8.0.2.1'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'propshaft'
 # Use postgresql as the database for Active Record
@@ -26,7 +26,7 @@ gem 'jbuilder'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
-gem 'solid_cable'
+gem 'solid_cable', '>= 3.0.12'
 gem 'solid_cache'
 gem 'solid_queue'
 
