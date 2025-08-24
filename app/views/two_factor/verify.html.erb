@@ -1,0 +1,7 @@
+<!-- app/views/two_factor/verify.html.erb -->
+<h2>Enter OTP</h2>
+<%= form_with url: check_two_factor_path do |f| %>
+  <%= f.label :otp_code, "OTP Code" %>
+  <%= f.text_field :otp_code %>
+  <%= f.submit "Verify" %>
+<% end %>
