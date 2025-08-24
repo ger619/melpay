@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :homes, dependent: :destroy
 
   def generate_otp!
-    self.otp_code = rand(100000..999999).to_s
+    self.otp_code = rand(100_000..999_999).to_s
     self.otp_sent_at = Time.current
     save!
   end
